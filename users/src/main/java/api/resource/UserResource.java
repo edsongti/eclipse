@@ -50,9 +50,9 @@ public class UserResource {
 		return ResponseEntity.noContent().build();
 	}
 
-
-	public String update() {
-		// TODO Auto-generated method stub
-		return null;
+	@PutMapping(value="/{id}")
+	public ResponseEntity<User> update(@PathVariable Long id, @RequestBody User user) {
+		user = service.update(id, user);
+		return ResponseEntity.ok().body(user);
 	}
 }
