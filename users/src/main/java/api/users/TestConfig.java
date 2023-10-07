@@ -7,11 +7,15 @@ import org.springframework.boot.CommandLineRunner;
 
 import api.entities.User;
 import api.repositories.UserRepository;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
+@Configuration
+@Profile("test")
 public class TestConfig implements CommandLineRunner {
 	
 	@Autowired
-	public UserRepository userRepository;
+	private UserRepository userRepository;
 
 	@Override
 	public void run(String... args) throws Exception {
